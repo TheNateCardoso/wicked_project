@@ -1,0 +1,202 @@
+@use 'variaveis';
+@use 'hero';
+@use 'spaces';
+@use 'faq';
+@use 'footer';
+@use 'header';
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Avenir', sans-serif;
+    list-style: none;
+}
+
+body{
+    background-color:variaveis.$bgColor;
+}
+
+@mixin text($fontSize:16px){
+    font-size:$fontSize;
+    line-height:$fontSize+10px;
+    color:variaveis.$mainTextColor;
+}
+
+@mixin title($fontSize:40px){
+    @include text($fontSize);
+    color:variaveis.$secondTextColor;
+}
+
+.text--big{
+    @include text(18px);
+
+    @media (max-width: 768px) {
+        @include text(15px);
+    }
+}
+
+.text{
+    @include text;
+    
+    @media (max-width: 768px) {
+        @include text(14px);
+    }
+}
+
+.text--small{
+    @include text(12px);
+
+    @media (max-width: 768px) {
+        @include text(11px);
+    }
+}
+
+.link-text{
+    @include text(18px);
+    color: variaveis.$secondTextColor;
+    text-decoration: underline;
+}
+
+.title--big{
+    @include title(44px);
+
+    @media (max-width: 768px) {
+        @include title(26px);
+    }
+}
+
+.title{
+    @include title;
+
+    @media (max-width: 768px) {
+        @include title(24px);
+    }
+}
+
+.title--small{
+    @include title(28px);
+
+    @media (max-width: 768px) {
+        @include title(22px);
+    }
+}
+
+.button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 60px;
+    font-size: 18px;
+    color: variaveis.$secondTextColor;
+    background-color: variaveis.$mainButtonColor;
+    text-transform: uppercase;
+    border-radius: 4px;
+    text-decoration: none;
+    padding: 8px 14px;
+    letter-spacing: 1px;
+    border: 1px solid variaveis.$mainButtonColor;
+    cursor: pointer;
+
+    &:hover{
+        background-color: #7a42ff;
+    }
+
+    &--secondary{
+        background-color: variaveis.$secondButtonColor;
+        border-color: variaveis.$secondButtonColor;
+
+        &:hover{
+            background-color: #0b72fa;
+        }
+    }
+
+    &--dark{
+        background-color: variaveis.$darkButtonColor;
+        border-color: variaveis.$secondTextColor;
+
+        &:hover{
+            background-color: variaveis.$secondTextColor;
+            color: black;
+        }
+    }
+}
+
+// Adicione isso no final do arquivo, depois de todos os outros estilos
+.shows__tabs__button {
+    // Garante que os botões das tabs não herdem estilos indesejados
+    all: unset;
+    
+    // Aplica estilos específicos
+    color: variaveis.$secondTextColor;
+    font-size: 20px;
+    border: none;
+    padding: 8px 16px;
+    background: none;
+    text-transform: uppercase;
+    margin: 0 1vw;
+    cursor: pointer;
+    border-bottom: 5px solid transparent;
+    transition: border-color 0.3s ease;
+
+    &--active {
+        border-color: variaveis.$secondTextColor;
+        font-weight: bold;
+    }
+
+    // Remove o efeito hover dos botões comuns
+    &:hover {
+        background: none;
+        color: variaveis.$secondTextColor;
+    }
+}
+
+.image-text-section{
+    padding: 5.6vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    
+    @media (max-width: 768px) {
+        display: block;
+    }
+
+    img{
+        max-width: 100%;
+    }
+
+    &__text-container{
+        padding: 2vw;
+
+        h2{
+            margin-bottom: 24px;
+        }
+    }
+
+    &--image-full-width{
+        display: block;
+        position: relative;
+
+        img{
+            width: 100%;
+        }
+
+        &__text-container{
+            position: absolute;
+            top: 0;
+            left: 50%;
+            height: 100%;
+            width: calc(50% - 5.6vw);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            @media (max-width: 768px) {
+                position: relative;
+                left: 0;
+                width: 100%;
+            }
+        }
+    }
+}

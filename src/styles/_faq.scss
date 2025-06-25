@@ -1,0 +1,66 @@
+.faq {
+    padding: 5.6vw;
+
+    h2 {
+        text-align: center;
+        margin-bottom: 24px;
+    }
+
+    &__questions {
+        &__item {
+            background-color: #13151d;
+            margin-bottom: 16px;
+            overflow: hidden; // Importante para a animação
+
+            &__question {
+                color: white;
+                font-size: 20px;
+                padding: 24px;
+                display: block;
+                cursor: pointer;
+                position: relative;
+
+                &::after {
+                    content: '+';
+                    position: absolute;
+                    top: 0;
+                    right: 24px;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    font-size: 40px;
+                    transition: transform 0.3s ease; // Adicione transição para o ícone
+                }
+            }
+
+            &__answer {
+                opacity: 0;
+                transform: translateY(-10px);
+                transition: opacity 0.3s ease, transform 0.3s ease, max-height 0.3s ease;
+                padding: 0 24px;
+                max-height: 0;
+                overflow: hidden;
+
+                span{
+                    display: block;
+                    margin-top: 16px;
+                    font-size: 18px;
+                }
+            }
+
+            &--open {
+                .faq__questions__item__question::after {
+                    content: '-';
+                    transform: rotate(180deg);
+                }
+
+                .faq__questions__item__answer {
+                    opacity: 1;
+                    max-height: 1000px; // define um valor alto, mas fixo (para animar)
+                    transform: translateY(0);
+                    padding: 0 24px 24px;
+                }
+            }
+        }
+    }
+}

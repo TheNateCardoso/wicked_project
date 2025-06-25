@@ -1,0 +1,81 @@
+@use 'variaveis';
+
+.spaces {
+    padding: 2vw 5.6vw;
+    min-height: 50vw;
+
+    &__tabs {
+        display: flex;
+        justify-content: center;
+
+        @media (max-width: 768px) {
+            white-space: nowrap;
+            overflow-x: scroll;
+            padding-left: 20px;
+        }
+
+        &__button {
+            // Estilos específicos para os botões das tabs
+            color: variaveis.$secondTextColor;
+            font-size: 20px;
+            border: none;
+            padding: 8px 16px; // Ajuste o padding
+            background: none; // Remove o fundo roxo
+            text-transform: uppercase;
+            margin: 0 1vw;
+            cursor: pointer;
+            border-bottom: 5px solid transparent;
+            transition: border-color 0.3s ease;
+            border-radius: 0; // Remove bordas arredondadas
+
+            // Remove estilos padrão de botão
+            &:focus {
+                outline: none;
+            }
+
+            &--active {
+                border-color: variaveis.$secondTextColor;
+                font-weight: bold;
+            }
+
+            @media (max-width: 768px) {
+                font-size: 16px;
+            }
+
+            // Remove todos os estilos do .button que estão afetando
+            &.button {
+                width: auto;
+                height: auto;
+                font-size: 20px;
+                color: variaveis.$secondTextColor;
+                background-color: transparent;
+                text-transform: uppercase;
+                border-radius: 0;
+                margin: 0;
+                padding: 8px 16px;
+            }
+        }
+    }
+
+    &__list {
+        margin-top: 44px;
+        display: none;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 24px;
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        &--active {
+            display: grid;
+        }
+
+        &__item {
+            img {
+                max-width: 100%;
+                border-radius: 4px;
+            }
+        }
+    }
+}

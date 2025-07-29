@@ -9,7 +9,7 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family: 'Avenir', sans-serif;
+    font-family: "Open Sans", sans-serif;
     list-style: none;
 }
 
@@ -53,7 +53,7 @@ body{
 }
 
 .link-text{
-    @include text(18px);
+    @include text(12px);
     color: variaveis.$secondTextColor;
     text-decoration: underline;
 }
@@ -108,7 +108,7 @@ body{
         border-color: variaveis.$secondButtonColor;
 
         &:hover{
-            background-color: variaveis.$fourthButtonColor;
+            background-color: variaveis.$mainButtonColor;
         }
     }
 
@@ -179,7 +179,7 @@ body{
         position: relative;
 
         img{
-            width: 100%;
+            width: 50%;
         }
 
         &__text-container{

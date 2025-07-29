@@ -20,7 +20,7 @@
         margin-top: 2vw;
         margin-bottom: 8px;
     }
-
+    
     &__content{
         max-width: 640px;
 
@@ -39,6 +39,12 @@
 
         .title--small{
             margin-bottom: 64px;
+            display: block;
+        }
+
+        .text--small{
+            margin-bottom: 64px;
+            display: block;
         }
 
         p{
@@ -50,23 +56,14 @@
         }
 
         &__combos{
-            display: flex;
+            display: block;
             justify-content: space-between;
+            max-width: 320px;
+            margin: 0 auto 38px;
+            align-items: center;
 
             @media (max-width: 768px) {
                 display: block;
-            }
-            
-            &__combo {
-                img {
-                    display: block;
-                    margin: 0 auto;
-                }
-
-                @media (max-width: 768px) {
-                    width: 100%;
-                    margin-bottom: 24px;
-                }
             }
         }
     }

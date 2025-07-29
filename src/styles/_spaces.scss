@@ -15,34 +15,31 @@
         }
 
         &__button {
-            // Estilos específicos para os botões das tabs
             color: variaveis.$secondTextColor;
             font-size: 20px;
             border: none;
-            padding: 8px 16px; // Ajuste o padding
-            background: none; // Remove o fundo roxo
+            border-bottom: 5px solid transparent;
+            padding: 8px 16px;
+            background: none;
             text-transform: uppercase;
             margin: 0 1vw;
             cursor: pointer;
-            border-bottom: 5px solid transparent;
             transition: border-color 0.3s ease;
-            border-radius: 0; // Remove bordas arredondadas
+            border-radius: 0;
 
-            // Remove estilos padrão de botão
             &:focus {
                 outline: none;
             }
 
+            // Seletor mais específico para o estado ativo
             &--active {
                 border-color: variaveis.$secondTextColor;
-                font-weight: bold;
             }
 
             @media (max-width: 768px) {
                 font-size: 16px;
             }
 
-            // Remove todos os estilos do .button que estão afetando
             &.button {
                 width: auto;
                 height: auto;
@@ -67,15 +64,26 @@
             grid-template-columns: 1fr 1fr;
         }
 
-        &--active {
-            display: grid;
-        }
-
         &__item {
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            border-radius: 4px;
+            display: block;
+            position: relative;
+            width: 100%;
+
             img {
-                max-width: 100%;
-                border-radius: 4px;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+                display: block;
             }
         }
+    }
+
+    // Torne o seletor mais específico
+    &__list--active {
+        display: grid;
     }
 }

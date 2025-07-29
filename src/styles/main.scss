@@ -100,7 +100,7 @@ body{
     cursor: pointer;
 
     &:hover{
-        background-color: #7a42ff;
+        background-color: variaveis.$secondButtonColor;
     }
 
     &--secondary{
@@ -108,7 +108,7 @@ body{
         border-color: variaveis.$secondButtonColor;
 
         &:hover{
-            background-color: #0b72fa;
+            background-color: variaveis.$fourthButtonColor;
         }
     }
 
